@@ -1,0 +1,56 @@
+<section id="skills" class="section-padding skills-section">
+  <div class="section-container">
+    <!-- Header -->
+    <div class="section-header reveal">
+      <p class="section-label">skills & tools</p>
+      <h2 class="section-title">What I Work With</h2>
+      <p class="section-subtitle">
+        A focused stack built around Angular — mastered with intention, not
+        scattered across every new trend.
+      </p>
+    </div>
+
+    <!-- Skill Groups Grid -->
+    <div class="skills-grid">
+      @for (group of skillGroups; track group.category; let i = $index) {
+        <div class="skill-card reveal" [style.transition-delay.ms]="i * 100">
+          <div class="card-header">
+            <span class="group-icon">{{ group.icon }}</span>
+            <h3 class="group-name">{{ group.category }}</h3>
+            <div class="group-accent" [style.background]="group.color"></div>
+          </div>
+
+          <div class="skill-list">
+            @for (skill of group.skills; track skill.name) {
+              <div class="skill-item">
+                <div class="skill-meta">
+                  <span class="skill-name">{{ skill.name }}</span>
+                  <span class="skill-pct mono">{{ skill.level }}%</span>
+                </div>
+                <div class="skill-bar">
+                  <div
+                    class="skill-fill"
+                    [style.width.%]="skill.level"
+                    [style.background]="group.color"
+                  ></div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Tech Badges -->
+    <div class="badges-section reveal">
+      <p class="badges-label mono">quick reference</p>
+      <div class="badges-cloud">
+        @for (badge of techBadges; track badge; let i = $index) {
+          <span class="badge" [style.animation-delay.ms]="i * 50">{{
+            badge
+          }}</span>
+        }
+      </div>
+    </div>
+  </div>
+</section>

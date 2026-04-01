@@ -1,0 +1,110 @@
+<section id="about" class="section-padding">
+  <div class="section-container">
+    <!-- Section Header -->
+    <div class="section-header reveal">
+      <p class="section-label">about me</p>
+      <h2 class="section-title">The Story So Far</h2>
+      <p class="section-subtitle">
+        Not just a developer — a builder. I started from zero in December 2022
+        and never stopped shipping. Every line of code is intentional, every
+        interaction deliberate.
+      </p>
+    </div>
+
+    <!-- Two Column Layout -->
+    <div class="about-grid">
+      <!-- Timeline -->
+      <div class="timeline">
+        @for (item of timeline; track item.period; let i = $index) {
+          <div
+            class="timeline-item reveal"
+            [style.transition-delay.ms]="i * 120"
+            [class.highlight]="item.highlight"
+          >
+            <div class="timeline-icon">{{ item.icon }}</div>
+            <div
+              class="timeline-connector"
+              [class.last]="i === timeline.length - 1"
+            ></div>
+            <div class="timeline-card">
+              <div class="card-top">
+                <span class="mono period">{{ item.period }}</span>
+                @if (item.highlight) {
+                  <span class="current-badge mono">current</span>
+                }
+              </div>
+              <h3 class="timeline-role">{{ item.role }}</h3>
+              <p class="timeline-company">{{ item.company }}</p>
+              <p class="timeline-desc">{{ item.description }}</p>
+              <div class="timeline-tags">
+                @for (tag of item.tags; track tag) {
+                  <span class="tag">{{ tag }}</span>
+                }
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Right Column: Traits + Quote -->
+      <div class="about-side">
+        <!-- Mindset Card -->
+        <div class="mindset-card reveal">
+          <div class="mindset-header">
+            <span class="mono">$ cat mindset.txt</span>
+          </div>
+          <blockquote class="mindset-quote">
+            "Good code is not just code that works — it's code that
+            <em>communicates</em>, scales gracefully, and makes the next
+            developer's life easier."
+          </blockquote>
+          <div class="mindset-author mono">— Prakshil Tripathi</div>
+        </div>
+
+        <!-- Traits -->
+        <div class="traits-grid">
+          @for (trait of traits; track trait.label) {
+            <div class="trait-card reveal">
+              <span class="trait-icon">{{ trait.icon }}</span>
+              <span class="trait-label">{{ trait.label }}</span>
+            </div>
+          }
+        </div>
+
+        <!-- LinkedIn CTA -->
+        <a
+          class="linkedin-card reveal"
+          href="https://in.linkedin.com/in/prakshil-tripathi-frontend-developer"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="li-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              />
+            </svg>
+          </div>
+          <div class="li-text">
+            <span class="li-action">View Full Profile</span>
+            <span class="li-handle mono"
+              >Prakshil Tripathi | Frontend Developer (Angular)</span
+            >
+          </div>
+          <svg
+            class="li-arrow"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="7" y1="17" x2="17" y2="7" />
+            <polyline points="7 7 17 7 17 17" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

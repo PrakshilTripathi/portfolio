@@ -1,0 +1,165 @@
+<section id="contact" class="section-padding contact-section">
+  <div class="section-container">
+    <!-- Header -->
+    <div class="section-header reveal">
+      <p class="section-label">get in touch</p>
+      <h2 class="section-title">Let's Build Something</h2>
+      <p class="section-subtitle">
+        Open to full-time roles, freelance projects, and interesting
+        collaborations. If you have an idea — let's talk.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Left: Info -->
+      <div class="contact-info reveal">
+        <div class="info-cards">
+          @for (info of contactInfo; track info.label) {
+            <div class="info-card">
+              <span class="info-icon">{{ info.icon }}</span>
+              <div class="info-text">
+                <span class="info-label mono">{{ info.label }}</span>
+                @if (info.href) {
+                  <a [href]="info.href" target="_blank" class="info-value">{{
+                    info.value
+                  }}</a>
+                } @else {
+                  <span class="info-value">{{ info.value }}</span>
+                }
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Availability Banner -->
+        <div class="availability-card">
+          <div class="avail-dot"></div>
+          <div class="avail-text">
+            <span class="avail-title">Currently Available</span>
+            <span class="avail-sub mono"
+              >Actively looking for new opportunities</span
+            >
+          </div>
+        </div>
+
+        <!-- Terminal-style closing line -->
+        <div class="terminal-sign reveal">
+          <div class="tsign-bar">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="tsign-body">
+            <span class="ts-prompt mono">❯ </span>
+            <span class="ts-cmd mono"
+              >echo "Let's create something great together"</span
+            >
+            <br />
+            <span class="ts-out mono"
+              >Let's create something great together</span
+            >
+            <br />
+            <span class="ts-prompt mono"
+              >❯ <span class="ts-cursor">▋</span></span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="form-wrapper reveal">
+        @if (!submitted()) {
+          <form class="contact-form" (ngSubmit)="onSubmit()" #f="ngForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label mono">Your name</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  placeholder="Recruiter / Developer / ..."
+                  [ngModel]="name()"
+                  (ngModelChange)="name.set($event)"
+                  name="name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label mono">Email address</label>
+                <input
+                  class="form-input"
+                  type="email"
+                  placeholder="you@company.com"
+                  [ngModel]="email()"
+                  (ngModelChange)="email.set($event)"
+                  name="email"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label mono">Subject</label>
+              <input
+                class="form-input"
+                type="text"
+                placeholder="Hiring · Freelance · Collaboration · Just saying hi"
+                [ngModel]="subject()"
+                (ngModelChange)="subject.set($event)"
+                name="subject"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label mono">Message</label>
+              <textarea
+                class="form-input form-textarea"
+                placeholder="Tell me about your project or opportunity..."
+                [ngModel]="message()"
+                (ngModelChange)="message.set($event)"
+                name="message"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="form-submit"
+              [class.loading]="submitting()"
+              [disabled]="submitting()"
+            >
+              @if (submitting()) {
+                <span class="spinner"></span>
+                <span>Sending...</span>
+              } @else {
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <line x1="22" y1="2" x2="11" y2="13" />
+                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                </svg>
+                <span>Send Message</span>
+              }
+            </button>
+          </form>
+        } @else {
+          <div class="success-state">
+            <div class="success-icon">✅</div>
+            <h3 class="success-title">Message Sent!</h3>
+            <p class="success-desc">
+              Thanks for reaching out. I'll get back to you as soon as possible.
+            </p>
+            <button class="btn-outline" (click)="resetForm()">
+              Send Another
+            </button>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

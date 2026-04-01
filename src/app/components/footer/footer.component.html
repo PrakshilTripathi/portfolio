@@ -1,0 +1,55 @@
+<footer class="footer">
+  <div class="footer-glow"></div>
+  <div class="section-container">
+    <div class="footer-inner">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <span class="brand-logo mono">
+          <span class="bracket">[</span>PT<span class="bracket">]</span>
+        </span>
+        <p class="brand-tagline">Crafting Digital Experiences That Matter.</p>
+      </div>
+
+      <!-- Nav -->
+      <nav class="footer-nav">
+        @for (link of links; track link.label) {
+          <a
+            class="footer-link mono"
+            href="javascript:void(0)"
+            (click)="scrollTo(link.href)"
+          >
+            {{ link.label }}
+          </a>
+        }
+      </nav>
+
+      <!-- Social -->
+      <div class="footer-social">
+        @for (s of social; track s.label) {
+          <a
+            class="social-btn"
+            [href]="s.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.aria-label]="s.label"
+            [innerHTML]="s.icon"
+          ></a>
+        }
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <span class="mono copyright">
+        © {{ year }} Prakshil Tripathi — Built with Angular
+      </span>
+      <button
+        class="back-top mono"
+        (click)="scrollToTop()"
+        aria-label="Back to top"
+      >
+        ↑ back to top
+      </button>
+    </div>
+  </div>
+</footer>

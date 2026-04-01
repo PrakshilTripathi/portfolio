@@ -1,0 +1,128 @@
+<section id="hero" class="hero">
+  <!-- Animated Background Orbs -->
+  <div
+    class="orb orb-1"
+    [style.left.%]="mouseX() * 0.03 + 5"
+    [style.top.%]="mouseY() * 0.03 + 10"
+  ></div>
+  <div
+    class="orb orb-2"
+    [style.right.%]="mouseX() * 0.02 + 8"
+    [style.bottom.%]="mouseY() * 0.02 + 15"
+  ></div>
+  <div class="orb orb-3"></div>
+
+  <!-- Grid Lines Background -->
+  <div class="grid-bg"></div>
+
+  <!-- Terminal Window -->
+  <div class="hero-terminal">
+    <div class="terminal-bar">
+      <span class="dot dot-red"></span>
+      <span class="dot dot-yellow"></span>
+      <span class="dot dot-green"></span>
+      <span class="terminal-title">prakshil&#64;portfolio ~ bash</span>
+    </div>
+    <div class="terminal-body">
+      <div class="terminal-line">
+        <span class="prompt">❯</span>
+        <span class="cmd">whoami</span>
+      </div>
+      <div class="terminal-output">Prakshil Tripathi</div>
+
+      <div class="terminal-line">
+        <span class="prompt">❯</span>
+        <span class="cmd">cat role.txt</span>
+      </div>
+      <div class="terminal-output typing-line">
+        {{ displayText()
+        }}<span class="type-cursor" [class.hidden]="!showCursor()">▋</span>
+      </div>
+
+      @if (typingDone()) {
+        <div class="terminal-line fade-in">
+          <span class="prompt">❯</span>
+          <span class="cmd">cat status.txt</span>
+        </div>
+        <div class="terminal-output fade-in">
+          <span class="status-badge">● Available for hire</span>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Main Hero Content -->
+  <div class="hero-content">
+    <div class="hero-label mono">
+      <span class="label-dot"></span> crafting digital experiences
+    </div>
+
+    <h1 class="hero-title">
+      <span class="title-line">Crafting Digital</span>
+      <span class="title-line accent-line">Experiences</span>
+      <span class="title-line">That Matter.</span>
+    </h1>
+
+    <p class="hero-desc">
+      Angular developer turning complex requirements into elegant, performant
+      interfaces. From pixels to production — I build things people love to use.
+    </p>
+
+    <div class="hero-actions">
+      <button class="btn-primary" (click)="scrollToContact()">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <path
+            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+          />
+          <polyline points="22,6 12,13 2,6" />
+        </svg>
+        Let's Connect
+      </button>
+      <button class="btn-outline" (click)="scrollToAbout()">
+        View My Journey
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <polyline points="19 12 12 19 5 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Stats Bar -->
+    <!-- <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-value mono">2+</span>
+        <span class="stat-label">Years Building</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value mono">10+</span>
+        <span class="stat-label">Projects Shipped</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value mono">∞</span>
+        <span class="stat-label">Problems Solved</span>
+      </div>
+    </div> -->
+  </div>
+
+  <!-- Scroll Hint -->
+  <div class="scroll-hint">
+    <span class="mono">scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
